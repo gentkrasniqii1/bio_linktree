@@ -1,0 +1,397 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional Design System - All colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* Core Design System Colors */
+    --background: 220 14% 96%;
+    --foreground: 224 71% 4%;
+
+    /* Professional Card System */
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+
+    /* Interactive Elements */
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
+
+    /* Primary Brand Colors */
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary Support Colors */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 9% 46%;
+
+    /* Muted/Subtle Elements */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    /* Accent/Highlight Colors */
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 9% 46%;
+
+    /* Destructive/Error Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Interactive States */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 221 83% 53%;
+
+    /* Professional Enhancement Variables */
+    --radius: 0.75rem;
+    
+    /* Professional Glass Effects */
+    --glass-bg: 255 255 255 / 0.08;
+    --glass-border: 255 255 255 / 0.12;
+    --glass-border-hover: 255 255 255 / 0.24;
+    
+    /* Professional Glow Effects */
+    --glow-primary: 221 83% 53%;
+    --glow-secondary: 262 83% 58%;
+    --glow-accent: 142 76% 36%;
+    
+    /* Professional Text Hierarchy */
+    --text-primary: 224 71% 4%;
+    --text-secondary: 220 9% 46%;
+    --text-muted: 220 9% 64%;
+    --text-inverse: 210 40% 98%;
+    
+    /* Professional Shadows */
+    --shadow-subtle: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-soft: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-medium: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-large: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    
+    /* Professional Spacing System */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+  }
+
+  .dark {
+    /* Dark Mode Professional Colors */
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 28% 17%;
+    --muted-foreground: 217 11% 65%;
+
+    --accent: 215 28% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 221 83% 53%;
+
+    /* Dark Mode Glass Effects */
+    --glass-bg: 255 255 255 / 0.05;
+    --glass-border: 255 255 255 / 0.08;
+    --glass-border-hover: 255 255 255 / 0.16;
+    
+    /* Dark Mode Text */
+    --text-primary: 210 40% 98%;
+    --text-secondary: 217 11% 65%;
+    --text-muted: 215 16% 47%;
+    --text-inverse: 224 71% 4%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Professional Typography System */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold tracking-tight;
+    line-height: 1.2;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+    letter-spacing: -0.015em;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl lg:text-3xl;
+    letter-spacing: -0.01em;
+  }
+
+  h4 {
+    @apply text-lg md:text-xl lg:text-2xl;
+  }
+
+  p, span, div {
+    @apply font-sans leading-relaxed;
+    line-height: 1.6;
+  }
+
+  /* Professional Focus States */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  /* Professional Card System */
+  .card-professional {
+    @apply bg-card/50 backdrop-blur-xl border border-white/10 rounded-2xl;
+    background: rgba(var(--glass-bg));
+    border-color: rgba(var(--glass-border));
+    box-shadow: 
+      0 4px 32px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-professional:hover {
+    border-color: rgba(var(--glass-border-hover));
+    box-shadow: 
+      0 8px 64px rgba(0, 0, 0, 0.15),
+      0 0 32px rgba(var(--glow-primary) / 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+
+  /* Professional Button System */
+  .btn-professional {
+    @apply relative overflow-hidden rounded-xl px-6 py-3 font-medium transition-all duration-300;
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+    @apply shadow-lg hover:shadow-xl active:scale-95;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary)) 100%);
+  }
+
+  .btn-professional::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent;
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  .btn-professional:hover::before {
+    transform: translateX(100%);
+  }
+
+  .btn-secondary {
+    @apply btn-professional bg-secondary text-secondary-foreground hover:bg-secondary/80;
+    background: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary)) 100%);
+  }
+
+  .btn-outline {
+    @apply btn-professional bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground;
+  }
+
+  /* Professional Input System */
+  .input-professional {
+    @apply w-full rounded-xl border border-input bg-background/50 backdrop-blur-sm px-4 py-3;
+    @apply text-foreground placeholder:text-muted-foreground;
+    @apply focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none;
+    @apply transition-all duration-200;
+  }
+
+  /* Professional Icon Effects */
+  .icon-professional {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .icon-professional:hover {
+    @apply scale-110;
+    filter: drop-shadow(0 0 8px rgba(var(--glow-accent) / 0.6));
+  }
+
+  /* Professional Glow Effects */
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(var(--glow-primary) / 0.4);
+  }
+
+  .glow-secondary {
+    box-shadow: 0 0 20px rgba(var(--glow-secondary) / 0.4);
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 20px rgba(var(--glow-accent) / 0.4);
+  }
+
+  /* Professional Text Utilities */
+  .text-professional-primary {
+    color: rgba(var(--text-primary));
+  }
+
+  .text-professional-secondary {
+    color: rgba(var(--text-secondary));
+  }
+
+  .text-professional-muted {
+    color: rgba(var(--text-muted));
+  }
+
+  /* Professional Dividers */
+  .divider-professional {
+    @apply h-px bg-gradient-to-r from-transparent via-border to-transparent;
+  }
+
+  /* Professional Background System */
+  .bg-professional {
+    background: linear-gradient(
+      135deg,
+      hsl(220 14% 96%) 0%,
+      hsl(220 20% 94%) 50%,
+      hsl(220 14% 96%) 100%
+    );
+  }
+
+  .dark .bg-professional {
+    background: linear-gradient(
+      135deg,
+      hsl(224 71% 4%) 0%,
+      hsl(220 50% 6%) 50%,
+      hsl(224 71% 4%) 100%
+    );
+  }
+
+  /* Professional Animation System */
+  .animate-professional-fade-in {
+    animation: professional-fade-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-professional-slide-up {
+    animation: professional-slide-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-professional-scale-in {
+    animation: professional-scale-in 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  /* Professional Gradient Text */
+  .text-gradient-professional {
+    @apply bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent;
+  }
+
+  /* Professional Hover States */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300;
+  }
+
+  .hover-glow:hover {
+    filter: drop-shadow(0 0 12px rgba(var(--glow-primary) / 0.4));
+  }
+}
+
+@keyframes professional-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes professional-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes professional-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes professional-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Professional Responsive Utilities */
+@media (max-width: 640px) {
+  .card-professional {
+    @apply rounded-xl;
+  }
+  
+  .btn-professional {
+    @apply px-4 py-2.5 text-sm;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-professional,
+  .btn-professional,
+  .icon-professional {
+    transition: none;
+  }
+  
+  .animate-professional-fade-in,
+  .animate-professional-slide-up,
+  .animate-professional-scale-in {
+    animation: none;
+  }
+}
+
+/* Professional Print Styles */
+@media print {
+  .card-professional {
+    @apply border border-gray-300 shadow-none;
+  }
+  
+  .bg-professional {
+    background: white;
+  }
+}
